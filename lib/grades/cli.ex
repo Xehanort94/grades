@@ -6,6 +6,13 @@ defmodule Grades.CLI do
   alias Grades.Parser
   alias Grades.Summary
 
+  @doc """
+  This function is supposed to be called from the commandline,
+  passing the target grade file as the single argument.
+
+  The Grades utility will parse and evaluate the grade file
+  and print a summary to the console.
+  """
   def main(args) do
     with {:ok, path}        <- parse_args(args),
          {:ok, data}        <- open_grade_file(path),
